@@ -183,7 +183,7 @@ Once uploaded, you should see some log output like shown below:
 
 When you scroll up in the log output, you should see the IP address of the sensor. For the more technically inclined peeps, you can add a static entry for the device in your home router so that it always gets the same IP address. This will make it easier to check it later on. Now that you have the IP address, fire up your web browser and visit http://<ip\_address>
 
-You should be greeted by a screen showing all your sensors and values.
+You should be greeted by a screen showing all your sensors and values. Note that the values will not be accurate at this stage as you have not installed it into the tank yet.
 
 ![](/Images/Readings.png)
 
