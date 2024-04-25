@@ -173,7 +173,7 @@ If you are using a second tank, add the second set of templates to your config:
       return (max_capacity * percentage)/100;
 ```
 
-Now that we’ve got our config sorted we need to compile and flash. To do this, use your locally installed version of ESPHome and run `` If you get any errors during the compile, please have a look at your indentation. The config file is YAML, so it is very picky about indents. I have uploaded a sample config to compare against your own file [here](/example-config-single-tank.yaml).
+Now that we’ve got our config sorted we need to compile and flash. To do this, use your locally installed version of ESPHome and run `esphome run watertank.yaml` If you get any errors during the compile, please have a look at your indentation. The config file is YAML, so it is very picky about indents. I have uploaded a sample config to compare against your own file [here](/example-config-single-tank.yaml).
 
 Once uploaded, you should see some log output like shown below:
 
