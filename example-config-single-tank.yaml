@@ -36,7 +36,6 @@ wifi:
 # to provision wifi credentials to the device via WiFi AP.
 captive_portal:
 
-# To have a "next url" for improv serial
 web_server:
       port: 80
       local: true
