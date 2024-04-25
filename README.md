@@ -40,7 +40,7 @@ On the board line change it to D1:
 
 ```
 esp8266:
-  board: D1
+  board: d1_mini
 ```
 
 Then add the following:
@@ -52,14 +52,14 @@ web_server:
 sensor:
   - platform: ultrasonic
     accuracy_decimals: 4
-    trigger_pin: D2
-    echo_pin: D1
+    trigger_pin: GPIO4
+    echo_pin: GPIO5
     name: "Municipal Water Tank Sensor"
     id: municipal_water_tank_sensor
   - platform: ultrasonic
     accuracy_decimals: 4
-    trigger_pin: D4
-    echo_pin: D3
+    trigger_pin: GPIO2
+    echo_pin: GPIO0
     name: "Rain Water Tank Sensor"
     id: rain_water_tank_sensor
 ```

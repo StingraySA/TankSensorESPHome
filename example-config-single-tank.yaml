@@ -1,6 +1,7 @@
 substitutions:
   name: water-tank-example
   friendly_name: Water_tank_example
+  updates: 50s # Set the update interval to something that will not flood your network.
 
 esphome:
   name: ${name}
@@ -11,7 +12,7 @@ esphome:
     version: '1.0'
 
 esp8266:
-  board: d1
+  board: d1_mini
 
 # Enable logging
 logger:
@@ -21,9 +22,6 @@ api:
 
 # Allow Over-The-Air updates
 ota:
-
-# Allow provisioning Wi-Fi via serial
-improv_serial:
 
 wifi:
   ssid: !secret wifi_ssid
@@ -49,16 +47,17 @@ web_server:
 sensor:
   - platform: ultrasonic
     accuracy_decimals: 4
-    trigger_pin: D2
-    echo_pin: D1
+    trigger_pin: GPIO4
+    echo_pin: GPIO5
     name: "Example Water Tank Sensor"
     id: example_water_tank_sensor
+    update_interval: ${updates}
 
   - platform: template
     name: "Full Water Height Example Tank"
     id: full_water_height_example_tank
     unit_of_measurement: "cm"
-    update_interval: 60s
+    update_interval: ${updates}
     lambda: |-
       return 147.00;  // Set the value accordingly
     
@@ -66,7 +65,7 @@ sensor:
     name: "Sensor Height From Water Level Example Tank"
     id: sensor_height_from_water_level_example_tank
     unit_of_measurement: "cm"
-    update_interval: 60s
+    update_interval: ${updates}
     lambda: |-
       return 20.77;  // Set the value accordingly
     
@@ -74,7 +73,7 @@ sensor:
     name: "Water Tank Max Capacity Example Tank"
     id: water_tank_max_capacity_example_tank
     unit_of_measurement: "l"
-    update_interval: 60s
+    update_interval: ${updates}
     lambda: |-
       return 2500;  // Set the value accordingly
     
@@ -82,7 +81,7 @@ sensor:
     name: "Water Tank Level Percentage Example Tank"
     id: water_tank_level_percentage_example_tank
     unit_of_measurement: "%"
-    update_interval: 60s
+    update_interval: ${updates}
     lambda: |-
       float full_water_height = id(full_water_height_example_tank).state;
       float sensor_height = id(sensor_height_from_water_level_example_tank).state;
@@ -94,7 +93,7 @@ sensor:
     name: "Water Tank Current Capacity Example Tank"
     id: water_tank_current_capacity_example_tank
     unit_of_measurement: "l"
-    update_interval: 60s
+    update_interval: ${updates}
     lambda: |-
       float max_capacity = id(water_tank_max_capacity_example_tank).state;
       float percentage = id(water_tank_level_percentage_example_tank).state;
